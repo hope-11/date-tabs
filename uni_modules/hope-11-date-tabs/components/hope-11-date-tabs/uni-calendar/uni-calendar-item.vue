@@ -7,9 +7,11 @@
 		'uni-calendar-item--multiple': weeks.multiple,
 		'uni-calendar-item--after-checked':weeks.afterMultiple,
 		}"
-		:style="{backgroundColor: (calendar.fullDate === weeks.fullDate && !weeks.isDay || calendar.fullDate === weeks.fullDate && weeks.isDay) && color ? color : ''}"
+		
 	 @click="choiceDate(weeks)">
-		<view class="uni-calendar-item__weeks-box-item">
+		<view class="uni-calendar-item__weeks-box-item" :style="{
+				backgroundColor: (calendar.fullDate === weeks.fullDate && !weeks.isDay || calendar.fullDate === weeks.fullDate && weeks.isDay) && color ? color : '',
+				borderRadius: (calendar.fullDate === weeks.fullDate && !weeks.isDay || calendar.fullDate === weeks.fullDate && weeks.isDay) && circle ? '50%' : ''}">
 			<text v-if="selected&&weeks.extraInfo" class="uni-calendar-item__weeks-box-circle"></text>
 			<text class="uni-calendar-item__weeks-box-text" :class="{
 				'uni-calendar-item--isDay-text': weeks.isDay,
@@ -86,6 +88,10 @@
 			color: {
 				type: String,
 				default: ''
+			},
+			circle: {
+				type: Boolean,
+				default: false,
 			}
 		},
 		computed: {
@@ -139,6 +145,7 @@
 		align-items: center;
 		width: 100rpx;
 		height: 100rpx;
+		border-radius: 4px;
 	}
 
 	.uni-calendar-item__weeks-box-circle {

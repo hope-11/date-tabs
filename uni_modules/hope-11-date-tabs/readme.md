@@ -12,6 +12,7 @@ endDate|结束日期，格式：YYYY-MM-DD|String|开始日期后第28天
 color|主题颜色|String|#007aff
 bgColor|背景颜色|String|white
 plain|朴素样式|Boolean|false
+circle|圆形样式|Boolean|false
 
 ### 事件
 事件名称|说明|回调参数

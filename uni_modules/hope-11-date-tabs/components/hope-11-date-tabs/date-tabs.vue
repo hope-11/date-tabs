@@ -4,9 +4,13 @@
 			<scroll-view scroll-x :show-scrollbar="false" :scroll-left="scrollLeft" scroll-with-animation class="scroll-view">
 				<view class="date-wrapper">
 					<view v-for="(item, index) in list" :key="index" class="date-item" @click="onItemClick(index)">
-						<view class="week":style="{color: index === current ? color : ''}">{{ item.w }}</view>
-						<view class="date" :class="{current : index === current}"
-							:style="{backgroundColor: index === current && !plain ? color : '', borderColor: index === current ? color : '', color: index === current && plain ? color : ''}">{{ item.d }}</view>
+						<view class="week" :style="{color: index === current ? color : ''}">{{ item.w }}</view>
+						<view class="date" :class="{current : index === current}" :style="{
+								backgroundColor: index === current && !plain ? color : '',
+								borderColor: index === current ? color : '',
+								color: index === current && plain ? color : '',
+								borderRadius: index === current && circle ? '50%' : ''
+							}">{{ item.d }}</view>
 					</view>
 				</view>
 			</scroll-view>
@@ -16,8 +20,8 @@
 			<Icons v-else type="calendar-filled" size="36" :color="color"></Icons>
 		</view>
 
-		<Calendar ref="calendar" :insert="false" :date="pickerValue" :startDate="calendarStartDate" :endDate="calendarEndDate" :color="color"
-			@confirm="onCalendarConfirm"></Calendar>
+		<Calendar ref="calendar" :insert="false" :date="pickerValue" :startDate="calendarStartDate"
+			:endDate="calendarEndDate" :color="color" :plain="plain" :circle="circle" @confirm="onCalendarConfirm"></Calendar>
 	</view>
 </template>
 <script>
@@ -55,6 +59,10 @@
 			plain: {
 				type: Boolean,
 				default: false
+			},
+			circle: {
+				type: Boolean,
+				default: false,
 			}
 		},
 		data() {
@@ -178,7 +186,7 @@
 							box-sizing: border-box;
 							border-width: 2px;
 							border-style: solid;
-							border-radius: 50%;
+							border-radius: 4px;
 							color: white;
 							font-weight: bold;
 						}

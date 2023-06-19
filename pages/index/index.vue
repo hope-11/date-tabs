@@ -11,8 +11,8 @@
 			<view class="value">当前日期：{{ value2 }}</view>
 		</view>
 		<view class="wrapper">
-			<view class="title">设置朴素样式</view>
-			<DateTabs :value.sync="value3" plain></DateTabs>
+			<view class="title">设置朴素和圆形样式</view>
+			<DateTabs :value.sync="value3" plain circle></DateTabs>
 			<view class="value">当前日期：{{ value3 }}</view>
 		</view>
 		<view class="wrapper">
@@ -35,7 +35,7 @@
 				value1: '',
 				value2: '2023-06-06',
 				value3: '',
-				value4: '',
+				value4: ''
 			}
 		},
 		onLoad() {

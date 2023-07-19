@@ -153,6 +153,29 @@
 
 			scroll-view {
 				height: 100%;
+				padding-bottom: 4px;
+
+				// 滚动条的宽度
+				::-webkit-scrollbar {
+					height: 6px !important;
+				}
+
+				::-webkit-scrollbar-track-piece {
+					background-color: rgba(144, 147, 153, 0);
+				}
+
+				// 滚动条的设置
+				::-webkit-scrollbar-thumb {
+					background-color: rgba(144, 147, 153, 0.3);
+					background-clip: padding-box;
+					min-height: 28px;
+					border-radius: 3px;
+					transition: 0.3s background-color;
+				}
+
+				::-webkit-scrollbar-thumb:hover {
+					background-color: rgba(144, 147, 153, 0.5);
+				}
 
 				.date-wrapper {
 					display: flex;

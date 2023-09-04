@@ -111,7 +111,7 @@
 						date: date.toDate(),
 						dd: date.format('YYYY-MM-DD'),
 						d: date.format('D'),
-						w: i === 0 ? '今' : (date.format('D') === '1' ? date.format('M月') : this.weekdays[date.day()])
+						w: date.isSame(dayjs(), 'day') ? '今' : (date.format('D') === '1' ? date.format('M月') : this.weekdays[date.day()])
 					})
 				}
 				this.onCalendarConfirm({

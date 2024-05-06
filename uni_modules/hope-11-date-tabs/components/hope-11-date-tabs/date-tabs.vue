@@ -114,9 +114,16 @@
 						w: date.isSame(dayjs(), 'day') ? '今' : (date.format('D') === '1' ? date.format('M月') : this.weekdays[date.day()])
 					})
 				}
-				this.onCalendarConfirm({
-					fulldate: this.value || dayjs().format('YYYY-MM-DD')
-				})
+				
+				const fulldate = this.value || dayjs().format('YYYY-MM-DD')
+				for (let i = 0; i < this.list.length; i++) {
+					if (this.list[i].dd === fulldate) {
+						this.current = i
+						this.scrollLeft = this.dateItemWidth * i + Math.random()
+						break
+					}
+				}
+				
 			},
 			onItemClick(index) {
 				this.current = index

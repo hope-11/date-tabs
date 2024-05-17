@@ -124,6 +124,7 @@
 					}
 				}
 				
+				this.$emit('update:value', this.list[this.current].dd)
 			},
 			onItemClick(index) {
 				this.current = index

@@ -20,8 +20,8 @@
 			<Icons v-else type="calendar-filled" size="36" :color="color"></Icons>
 		</view>
 
-		<Calendar ref="calendar" :insert="false" :date="pickerValue" :startDate="calendarStartDate"
-			:endDate="calendarEndDate" :color="color" :plain="plain" :circle="circle" @confirm="onCalendarConfirm"></Calendar>
+		<Calendar ref="calendar" :insert="false" :date="pickerValue" :startDate="calendarStartDate || ''"
+			:endDate="calendarEndDate || ''" :color="color" :plain="plain" :circle="circle" @confirm="onCalendarConfirm"></Calendar>
 	</view>
 </template>
 <script>
@@ -159,10 +159,11 @@
 		.tabs-wrapper {
 			width: calc(100% - 120rpx);
 
-			scroll-view {
+			.scroll-view {
 				height: 100%;
 				padding-bottom: 4px;
-
+				
+				/* #ifdef H5 */
 				// 滚动条的宽度
 				::-webkit-scrollbar {
 					height: 6px !important;
@@ -184,6 +185,7 @@
 				::-webkit-scrollbar-thumb:hover {
 					background-color: rgba(144, 147, 153, 0.5);
 				}
+				/* #endif */
 
 				.date-wrapper {
 					display: flex;
@@ -195,7 +197,7 @@
 						justify-content: center;
 						align-items: center;
 
-						view {
+						.week, .date {
 							width: 60rpx;
 							margin: 5rpx 20rpx;
 							display: flex;

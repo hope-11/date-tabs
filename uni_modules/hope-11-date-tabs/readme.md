@@ -1,5 +1,7 @@
 # date-tabs
 
+vue3版本请移步：[date-tabs-v3](https://ext.dcloud.net.cn/plugin?id=18190)
+
 ### 使用
 `<DateTabs :value.sync="value1" @change='onDateTabsChange'></DateTabs>`
 
